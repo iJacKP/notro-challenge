@@ -45,7 +45,7 @@ Na Notro, o seu dia-a-dia será repleto de:
   'Amazon Web Services',
   'PAAS & Cloud Services',
   'Serverless apps',
-  'AngularJS, Angular',
+  'Angular',
   'REST APIs',
   'GraphQL APIs',
   'Material Design',
@@ -68,7 +68,7 @@ Requisitos principais
  - Boa comunicação e trabalho em equipe :)
  - Proficiência em JavaScript e Typescript
  - Experiência com CSS e HTML Semântico
- - Experiência sólida com Angular, Ionic
+ - Experiência sólida com Angular, Ionic, GraphQL
  - Familiaridade com princípios de UX
  - Familiaridade com APIs REST, GraphQL e WebSockets
  - Ter prática em testar software!
@@ -102,36 +102,82 @@ A idéia é que a landing seja responsiva e deve conter todas as seções do PSD
 
 A dica aqui é que seu HTML e CSS seja bem escrito e com uma boa semântica :) -->
 
-&lt;challenge&gt; Frontend Developer &lt;/challenge&gt;
+# 🚀 Desafio Técnico – Fullstack Developer
+
 ----------
 
-Desenvolva um SPA que permitirá que um usuário pesquise repositórios no GitHub (os resultados devem ser paginados) e exiba informações relevantes de cada repositório (URL, descrição, contagem de watchers, de estrelas, issues e etc..)
+O objetivo deste desafio é avaliar suas habilidades de **frontend e backend** em um cenário prático.  
+Você deverá construir uma aplicação **SPA (Single Page Application)** utilizando **Angular 18+** e também desenvolver um **backend em Node.js** (pode ser com **Express, Nest.js, GraphQL ou até Node.js puro**).
 
-Basicamente, uma tela _quase_ parecida com essa: https://github.com/search?utf8=%E2%9C%93&q=node&type=
+A aplicação deverá permitir que o usuário **pesquise repositórios no GitHub** (ou outra API pública de sua escolha) e exiba informações relevantes de cada repositório de forma paginada.
 
-Você pode usar o seu framework SPA de preferencia, porém, estamos dando prioridade para testes feitos em Angular!
+---
 
-Escreva seu código com clareza e use a estrutura adequada do MVC para escrever o aplicativo e use as melhores práticas ao escrever JavaScript, CSS e HTML.
+## 🎯 Objetivos
 
-Um diferencial gigante é o uso de testes unitários e integrados!
+### Frontend (Angular 18+)
+- Permitir pesquisar repositórios por nome.
+- Listar informações relevantes: **nome, URL, descrição, contagem de watchers, estrelas, issues**, etc.
+- Implementar **paginação** via API.
+- Seguir boas práticas de **UX/UI**, com layout simples e organizado.
 
-URLs úteis:
+### Backend (Node.js)
+- Servir como camada intermediária entre o frontend e a API externa (ex: GitHub).
+- Disponibilizar **endpoints REST ou GraphQL** para o frontend consumir.
+- Implementar **tratamento de erros** e boas práticas de arquitetura.
+- Utilizar **estrutura clara de pastas (MVC ou modular)**.
+- **Opcional:** implementar **caching** para melhorar a performance.
 
-|  URL  | Descrição
-|--------|                                  --- |
-| https://api.github.com/search/repositories?q=bootstrap | Exemplo de URL da API para pesquisar pelo nome do repositório  |
-| https://api.github.com/search/issues?q=repo:username/reponame |  URL da API para exibir issues de um repositório  |
+---
 
-Documentação da API https://developer.github.com/v3/search/#search-issues e https://developer.github.com/v3/search/
+## 🧪 Diferenciais
 
-A propósito, se você achar a API do Github um pouco `boring` demais, escolha outra coisa que você goste.
+- **Testes unitários e integrados** no frontend e backend.  
+- Uso de **RxJS** no Angular para lidar com chamadas assíncronas.  
+- Uso de **Angular Material** ou outra biblioteca de UI.  
+- Configuração de **Docker** para subir o ambiente completo.  
+- Deploy em algum serviço (Heroku, Vercel, AWS, etc).  
 
-Há algumas APIs bem legais disponíveis na Internet, por exemplo: [Star Wars](https://swapi.co), [Marvel](https://developer.marvel.com) ou Cats, whatever, a escolha é sua.
+---
 
-#### Requisitos mínimos
-- Usar um framework (de preferencia angular)
-- Lista items de uma API
-- Ter páginação via API
+## 🔗 URLs úteis
+
+| Descrição | URL |
+|-----------|-----|
+| API para pesquisar repositórios no GitHub | https://api.github.com/search/repositories?q=bootstrap |
+| API para listar issues de um repositório | https://api.github.com/search/issues?q=repo:username/reponame |
+| Documentação da API GitHub | https://developer.github.com/v3/search |
+
+Se achar a API do GitHub muito "boring", pode escolher outra API pública divertida, como:
+- [Star Wars (SWAPI)](https://swapi.dev)
+- [Marvel](https://developer.marvel.com)
+- [The Cat API](https://thecatapi.com)
+
+---
+
+## ✅ Requisitos mínimos
+
+- Frontend em **Angular 18+** (obrigatório).
+- Backend em **Node.js** (pode ser Express, Nest.js, GraphQL ou puro).
+- Listar itens de uma API pública.
+- Implementar **paginação** via API.
+- Seguir **boas práticas de código, organização e clareza**.
+
+---
+
+## 📦 Entrega
+
+- O código deve estar em um repositório público no GitHub/GitLab.  
+- O README deve conter:
+  - Instruções para rodar o frontend e backend.  
+  - Dependências necessárias.  
+  - Como rodar os testes.  
+
+---
+
+👉 Esse desafio é uma oportunidade de mostrar suas **skills técnicas** e também sua **organização de projeto**.  
+
+Boa sorte e divirta-se! 🚀
 
 <!-- { "challenge": "Backend Developer 1" } -->
 <!-- ---------- -->
