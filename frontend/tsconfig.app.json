@@ -8,7 +8,7 @@
   },
   "include": [
     "src/**/*.ts"
-  ],
+, "src/app/features/repositories/components/repository-search/repository-search.component.spec.ts"  ],
   "exclude": [
     "src/**/*.spec.ts"
   ]
