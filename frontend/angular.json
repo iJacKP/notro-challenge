@@ -41,7 +41,7 @@
           },
           "configurations": {
             "production": {
-              "outputPath": "dist/frontend/browser",
+              "outputPath": "dist/frontend",
               "budgets": [
                 {
                   "type": "initial",
