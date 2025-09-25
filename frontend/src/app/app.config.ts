@@ -10,7 +10,7 @@ import { InMemoryCache } from '@apollo/client/core';
 
 import { routes } from './app.routes';
 
-const uri = 'http://localhost:3000/graphql';
+const uri = 'https://notro-challenge.onrender.com/graphql';
 
 export const appConfig: ApplicationConfig = {
   providers: [

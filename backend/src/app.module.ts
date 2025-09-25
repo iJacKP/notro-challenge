@@ -19,6 +19,8 @@ import { SearchRepositoriesUseCase } from './core/use-cases/search-repositories.
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      playground: false,
+      introspection: true,
     }),
   ],
   providers: [RepositoryResolver, GithubAdapter, SearchRepositoriesUseCase],
