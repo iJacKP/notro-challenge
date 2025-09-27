@@ -9,12 +9,17 @@ export class GithubAdapter {
 
   async searchRepositories(query: string, page: number): Promise<Repository[]> {
     try {
+      const headers: Record<string, string> = {
+        Accept: 'application/vnd.github.v3+json',
+      };
+
+      if (process.env.GITHUB_TOKEN) {
+        headers['Authorization'] = `Bearer ${process.env.GITHUB_TOKEN}`;
+      }
+
       const response = await axios.get(`${this.baseUrl}/search/repositories`, {
         params: { q: query, page, per_page: 10 },
-        headers: {
-          Accept: 'application/vnd.github.v3+json',
-          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-        },
+        headers,
       });
 
       if (!response.data.items?.length) {
