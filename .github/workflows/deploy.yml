@@ -17,15 +17,25 @@ jobs:
         with:
           node-version: 20
       - name: Install backend dependencies
-        run: npm install
+        run: |
+          cd backend
+          npm install
       - name: Build backend
-        run: npm run build
+        run: |
+          cd backend
+          npm run build
       - name: Lint backend
-        run: npm run lint
+        run: |
+          cd backend
+          npm run lint
       - name: Test backend
-        run: npm run test -- --watch=false
+        run: |
+          cd backend
+          npm run test -- --watch=false
       - name: E2E backend
-        run: npm run test:e2e
+        run: |
+          cd backend
+          npm run test:e2e
 
   # Job para Frontend
   frontend:
@@ -40,18 +50,16 @@ jobs:
         run: |
           cd frontend
           npm install
+
+      - name: Run frontend unit tests
+        run: |
+          cd frontend
+          npm run test -- --watch=false --browsers=ChromeHeadless
+
       - name: Build frontend
         run: |
           cd frontend
           npm run build -- --configuration production
-      - name: Lint frontend
-        run: |
-          cd frontend
-          npm run lint
-      - name: Test frontend
-        run: |
-          cd frontend
-          npm run test -- --watch=false --browsers=ChromeHeadless
 
   # Deploy só acontece se frontend e backend passarem
   deploy:
