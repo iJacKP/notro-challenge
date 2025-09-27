@@ -5,6 +5,7 @@ import { provideApollo } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
 import { InMemoryCache } from '@apollo/client/core';
 import { inject } from '@angular/core';
+import { environment } from './environments/environment';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -14,7 +15,7 @@ bootstrapApplication(AppComponent, {
       return {
         cache: new InMemoryCache(),
         link: httpLink.create({
-          uri: 'https://notro-challenge.onrender.com/graphql',
+          uri: `${environment.apiUrl}`,
         }),
       };
     }),

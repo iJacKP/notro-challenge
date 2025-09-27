@@ -91,19 +91,15 @@
   transform: translateX(-50%);
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   gap: 0.5rem;
-  background: #eee;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  width: calc(100% - 2rem); // respeita padding lateral do container
-  max-width: 1200px;
-  box-sizing: border-box;
+  padding: 0; // remove o padding extra
+  border-radius: 0; // sem borda arredondada
+  background: transparent; // tira o fundo
+  box-shadow: none; // tira a sombra
   z-index: 100;
 
   span {
-    font-weight: 700;
+    font-weight: 600;
     font-size: 0.875rem;
   }
 
@@ -115,13 +111,9 @@
   }
 
   @media (max-width: 768px) {
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 0.75rem;
     bottom: 10px;
-    left: 48%;
+    left: 50%;
     transform: translateX(-50%);
-    width: calc(100% - 4rem); // menor margem lateral
   }
 }
 

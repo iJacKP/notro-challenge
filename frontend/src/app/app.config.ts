@@ -8,10 +8,11 @@ import { APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
 import { InMemoryCache } from '@apollo/client/core';
 import { setContext } from '@apollo/client/link/context';
+import { environment } from '../environments/environment';
 
 import { routes } from './app.routes';
 
-const uri = 'https://notro-challenge.onrender.com/graphql';
+const uri = `${environment.apiUrl}`;
 
 export const appConfig: ApplicationConfig = {
   providers: [
