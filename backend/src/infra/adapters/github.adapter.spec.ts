@@ -18,7 +18,14 @@ describe('GithubAdapter', () => {
     mockedAxios.get.mockResolvedValueOnce({
       data: {
         items: [
-          { name: 'repo1', html_url: 'url', description: 'desc', stargazers_count: 1, watchers_count: 2, open_issues_count: 3 },
+          {
+            name: 'repo1',
+            html_url: 'url',
+            description: 'desc',
+            stargazers_count: 1,
+            watchers_count: 2,
+            open_issues_count: 3,
+          },
         ],
       },
     });
@@ -38,8 +45,9 @@ describe('GithubAdapter', () => {
   it('🚨 Deve lançar erro 404 quando não encontra repositórios', async () => {
     mockedAxios.get.mockResolvedValueOnce({ data: { items: [] } });
 
-    await expect(adapter.searchRepositories('notfound', 1))
-      .rejects.toThrow(HttpException);
+    await expect(adapter.searchRepositories('notfound', 1)).rejects.toThrow(
+      HttpException,
+    );
   });
 
   it('🚨 Deve lançar erro com status correto quando API falha', async () => {
@@ -48,7 +56,8 @@ describe('GithubAdapter', () => {
       response: { status: 500 },
     });
 
-    await expect(adapter.searchRepositories('fail', 1))
-      .rejects.toThrow('Erro ao consultar API do GitHub (500)');
+    await expect(adapter.searchRepositories('fail', 1)).rejects.toThrow(
+      'Erro ao consultar API do GitHub (500)',
+    );
   });
 });

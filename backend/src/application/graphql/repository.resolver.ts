@@ -13,13 +13,17 @@ export class RepositoryResolver {
     @Args('page', { type: () => Int, defaultValue: 1 }) page: number,
   ) {
     if (!query || query.trim().length < 2) {
-      throw new BadRequestException('A pesquisa deve ter pelo menos 2 caracteres.');
+      throw new BadRequestException(
+        'A pesquisa deve ter pelo menos 2 caracteres.',
+      );
     }
 
     try {
       return await this.searchUseCase.execute(query, page);
-    } catch (error: any) {
-      throw new BadRequestException(error.message || 'Erro ao buscar repositórios.');
+    } catch (error: unknown) {
+      const message =
+        error instanceof Error ? error.message : 'Erro desconhecido';
+      throw new BadRequestException(message);
     }
   }
 }

@@ -16,7 +16,7 @@ export class SearchRepositoriesUseCase {
     console.log('🔍 Buscando repositórios com chave de cache:', cacheKey);
 
     const cached = await this.cacheManager.get<Repository[]>(cacheKey);
-    
+
     if (cached) {
       console.log('✅ Retornando do cache', cached.length, 'itens');
       return cached;

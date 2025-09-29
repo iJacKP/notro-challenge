@@ -30,6 +30,16 @@ Frontend em Angular 18+ e backend em NestJS + GraphQL, seguindo boas práticas d
 - (opcional) Docker + Docker Compose
 
 
+### 🔐 Variáveis de ambiente (opcional)
+
+Para chamadas autenticadas à API do GitHub, crie um arquivo `.env` dentro da pasta `backend/` com:
+
+```env
+GITHUB_TOKEN=seu_token_aqui
+```
+
+Nota: Para gerar um token, vá em GitHub → Settings → Developer Settings → Personal Access Tokens → Generate token.
+
 ## 🚀 Como rodar o projeto
 
 1. Clonar o repositório
@@ -84,6 +94,14 @@ npm test
 - 🎨 Layout simples e organizado (Angular Material)
 - ⚡ Camada intermediária (NestJS) com tratamento de erros e arquitetura modular
 
+## 🌟 Diferenciais
+
+- Testes unitários e E2E no backend / testes unitários no frontend
+- CI/CD com GitHub Actions
+- Deploy automático com Vercel e Render
+- Cache inteligente para otimizar chamadas à API
+- Docker para ambiente completo
+
 ##  🛠️ Tecnologias utilizadas
 
 Frontend:
@@ -104,18 +122,13 @@ Infra
 - Render (deploy backend)
 - Vercel (deploy frontend)
 
-Variáveis de ambiente:
-
-Backend precisa de um token do GitHub para chamadas autenticadas.
-Crie um arquivo .env dentro de backend/:
-
-GITHUB_TOKEN=<seu_token_aqui>
-
-Nota: Para gerar um token, vá em GitHub → Settings → Developer Settings → Personal Access Tokens → Generate token.
-
-
 ## 🌍 Deploy
 - Frontend → Vercel
 - Backend → Render
 
 - Live Demo → [![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://notro-challenge.vercel.app/)
+
+---
+
+Feito com 💙 por [Jackson](https://github.com/iJacKP).  
+Fique à vontade para testar, contribuir ou deixar seu feedback!
