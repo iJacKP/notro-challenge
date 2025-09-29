@@ -102,7 +102,7 @@ npm test
 
 ## 🌟 Diferenciais
 
-- Testes unitários e E2E no backend / testes unitários no frontend
+- Testes unitários e E2E
 - CI/CD com GitHub Actions
 - Deploy automático com Vercel e Render
 - Cache inteligente para otimizar chamadas à API
