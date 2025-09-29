@@ -1,11 +1,14 @@
 
-# Notro Challenge
+# Notro Challenge - Github Repo Explorer
 
 Aplicação fullstack para pesquisar repositórios do GitHub por nome, visualizar informações relevantes e navegar com paginação.
 
 Frontend em Angular 18+ e backend em NestJS + GraphQL, seguindo boas práticas de arquitetura, testes e organização.
 
+- Figma (protótipo) → [![Vercel](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/design/1LsK99LKdAg8W1why1e4c2/Notro-Challenge?node-id=1-26&t=tpPHtIPZpjNX0I1c-1)
+
 - Live Demo → [![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://notro-challenge.vercel.app/)
+
 
 
 ## ✅ Requisitos atendidos
