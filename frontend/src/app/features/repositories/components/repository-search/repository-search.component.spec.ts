@@ -1,8 +1,10 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { of, throwError } from 'rxjs';
+import { ComponentFixture, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
+import { delay, of, throwError } from 'rxjs';
 import { RepositorySearchComponent } from './repository-search.component';
 import { RepositoriesService } from '../../services/repositories.service';
 import { MatDialog } from '@angular/material/dialog';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
 describe('RepositorySearchComponent', () => {
   let component: RepositorySearchComponent;
@@ -18,12 +20,14 @@ describe('RepositorySearchComponent', () => {
       providers: [
         { provide: RepositoriesService, useValue: spy },
         { provide: MatDialog, useValue: dialogSpy }
-      ]
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
 
     fixture = TestBed.createComponent(RepositorySearchComponent);
     component = fixture.componentInstance;
     serviceSpy = TestBed.inject(RepositoriesService) as jasmine.SpyObj<RepositoriesService>;
+    fixture.detectChanges();
   });
 
   it('✅ deve buscar repositórios quando search é chamado', () => {
@@ -93,5 +97,45 @@ describe('RepositorySearchComponent', () => {
     expect(component.errorMessage).toBe('Erro ao buscar repositórios.');
     expect(component.hasResults).toBeFalse();
   });
+
+ it('🧩 deve renderizar repositórios no template após busca', fakeAsync(() => {
+    const mockRepos = [
+      {
+        name: 'Repo 1',
+        url: 'https://github.com/repo1',
+        description: 'Descrição do repo',
+        stars: 10,
+        watchers: 5,
+        issues: 2,
+      },
+    ];
+
+    // devolve o resultado com delay(0) para forçar um segundo ciclo
+    serviceSpy.searchRepositories.and.returnValue(
+      of(mockRepos).pipe(delay(0))
+    );
+
+    component.query = 'angular';
+    component.search(true); 
+
+    // primeiro ciclo após chamar search(): loading=true
+    fixture.detectChanges();
+
+    // avança tempo para disparar o of(...).pipe(delay(0))
+    tick(0);
+
+    // segundo ciclo: resultados chegaram, hasResults e repositories$ já atualizados
+    fixture.detectChanges();
+
+    // busca pelo elemento que o card gera
+    const cardDebugEls = fixture.debugElement.queryAll(
+      By.css('app-repository-card')
+    );
+    expect(cardDebugEls.length).toBe(1);
+        // opcional: inspecionar texto dentro do stub via debugElement.nativeElement
+    const cardNative = cardDebugEls[0].nativeElement as HTMLElement;
+    expect(cardNative.textContent).toContain('Repo 1');
+    expect(cardNative.textContent).toContain('Descrição do repo');
+  }));
 
 });
