@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>{{ repo.name }}</h2>
+<mat-dialog-content>
+  <p>{{ repo.description }}</p>
+  <p>⭐ {{ repo.stars }}</p>
+  <p>👁 {{ repo.watchers }}</p>
+  <p>🐛 {{ repo.issues }}</p>
+  <a [href]="repo.url" target="_blank">Ver no GitHub</a>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Fechar</button>
+</mat-dialog-actions>

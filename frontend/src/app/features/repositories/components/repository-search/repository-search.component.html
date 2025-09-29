@@ -1,0 +1,55 @@
+<div class="search-container">
+  <div class="header">
+    <div class="branding">
+      <img src="assets/notro.png" alt="Notro Logo" class="logo" />
+      <span class="x">x</span>
+      <img src="assets/github.png" alt="GitHub Logo" class="logo" />
+    </div>
+
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Pesquisar repositório</mat-label>
+      <input matInput [(ngModel)]="query" (keyup.enter)="search(true)" />
+      <button mat-icon-button matSuffix (click)="search(true)" class="search-button">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+  <div *ngIf="loading" class="repositories-list">
+    <mat-card *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]" class="repo-card shimmer-card">
+      <div class="shimmer title"></div>
+      <div class="shimmer text"></div>
+      <div class="shimmer text short"></div>
+      <div class="shimmer button"></div>
+    </mat-card>
+  </div>
+
+  <div *ngIf="!hasResults && !loading" class="no-results">
+    <p>Nenhum repositório encontrado.</p>
+  </div>
+
+  <div *ngIf="errorMessage && !loading" class="error-message">
+    <p>{{ errorMessage }}</p>
+  </div>
+
+  <div class="repositories-list">
+    <app-repository-card
+      *ngFor="let repo of repositories$ | async"
+      [repo]="repo"
+      (openDetails)="openModal(repo)"
+    />
+  </div>
+
+  <div class="pagination">
+    <button mat-icon-button (click)="goToFirstPage()" [disabled]="page === 1 || !hasResults">
+      <mat-icon>first_page</mat-icon>
+    </button>
+    <button mat-icon-button (click)="prevPage()" [disabled]="page === 1 || !hasResults || !searchTerm">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <span> Página {{ page }}</span>
+    <button mat-icon-button (click)="nextPage()" [disabled]="!hasResults || !searchTerm">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
+</div>

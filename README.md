@@ -1,258 +1,138 @@
-👨‍💻 Vaga para apaixonados por criação de software
-===========================================
 
-A empresa
-----------
+# Notro Challenge - Github Repo Explorer
 
-Somos um [SaaS (Software as a service)](https://pt.wikipedia.org/wiki/Software_como_servi%C3%A7o) para empresas que atuam no ramo de assistências 24h.
+Aplicação fullstack para pesquisar repositórios do GitHub por nome, visualizar informações relevantes e navegar com paginação.
 
-Entregamos **controle**, **organização** e **melhor relacionamento com o cliente** para empresas de Viagens, Auto, Saúde, Funeral e também Residencial.
+Frontend em Angular 18+ e backend em NestJS + GraphQL, seguindo boas práticas de arquitetura, testes e organização.
 
-<p>
-  <img src="assets/notro.jpg" width="955"/>
-</p>
+- Figma (protótipo) → [![Vercel](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/design/1LsK99LKdAg8W1why1e4c2/Notro-Challenge?node-id=1-26&t=tpPHtIPZpjNX0I1c-1)
 
-Origem
-----------
+- Live Demo → [![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://notro-challenge.vercel.app/)
 
-Um ponto importante é que a Notro foi fundada por desenvolvedores, só por esse motivo você pode **TER CERTEZA** que aqui as coisas são muito diferentes das empresas tradicionais.
 
-Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) **DE VERDADE** para criação de software. Veja bem, não estou falando de post its ou reuniões em pé.. E sim de: Pair programming, Continuous Integration, Continuous Deployment e claro, testes automatizados.
 
-Condições
-----------
-- Período: Integral
-- Onde: Qualquer lugar :)
-----------
+## ✅ Requisitos atendidos
 
-A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
-Oportunidade
+- 	Frontend em Angular 18+
+-   Backend em Node.js (NestJS + GraphQL)
+-   Consumo de API pública (GitHub)
+-   Paginação via API
+-   Boas práticas de código e organização
 
-Estamos em busca de desenvolvedores **Frontend** FODAS e APAIXONADOS para fazer parte do nosso time de produto.
 
-Na Notro, o seu dia-a-dia será repleto de:
+## 📦 Estrutura do projeto
 
-```javascript
-[
-  'GitHub & Git <3',
-  'Muito, muito e muito JavaScript',
-  'Object-oriented programming, SOLID Principles & Design Patterns',
-  'Práticas e princípios ágeis (Pair programming, Continuous Integration, Continuous Deployment)',
-  'Testes de software (unitários, integração, e2e..)',
-  'Desafios de escalabilidade',
-  'Desafios de alta disponibilidade',
-  'Micro services e aplicações distribuídas',
-  'Amazon Web Services',
-  'PAAS & Cloud Services',
-  'Serverless apps',
-  'Angular',
-  'REST APIs',
-  'GraphQL APIs',
-  'Material Design',
-  'Open source software'
-]
+```bash
+├── frontend   # Angular 18+ app (UI/UX)
+├── backend    # NestJS API (GraphQL + GitHub API)
+├── docker-compose.yml # compose file com configuração para rodar os containers da aplicação
+├── package.json # package.json contendo scripts para iniciar a aplicação
+└── README.md  # este arquivo
+```
+## Pré-requisitos
+
+- Node.js 20+
+- NPM 9+
+- (opcional) Docker + Docker Compose
+
+
+### 🔐 Variáveis de ambiente (opcional)
+
+Para chamadas autenticadas à API do GitHub, crie um arquivo `.env` dentro da pasta `backend/` com:
+
+```env
+GITHUB_TOKEN=seu_token_aqui
 ```
 
-Nossa stack é praticamente toda em JavaScript: Node.js, SPA's e Hybrid Mobile Apps.
+Nota: Para gerar um token, vá em GitHub → Settings → Developer Settings → Personal Access Tokens → Generate token.
 
-Acreditamos que bons desenvolvedores usam a melhor ferramenta para cada problema, então, para resolver alguns problemas bem específicos usamos a melhor alternativa disponível, por isso, temos uma pitada de C#, Java e PHP também.
+## 🚀 Como rodar o projeto
 
-Nossos servidores estão na AWS e usamos a núvem como plataforma. Temos apps rodando no Elastic BeanStalk, S3 e Serverless na AWS Lambda :)
+1. Clonar o repositório
 
-Antes do conhecimento técnico, temos preferência pelo perfil pessoal. Ou seja, se você for esforçado, interessado e curioso.. é isso que importa pra a gente! :)
+```bash
+git clone https://github.com/iJacKP/notro-challenge.git
+cd notro-challenge
+```
 
-Requisitos principais
-----------
- - P R O A T I V I D A D E
- - Sentimento de D O N O
- - Boa comunicação e trabalho em equipe :)
- - Proficiência em JavaScript e Typescript
- - Experiência com CSS e HTML Semântico
- - Experiência sólida com Angular, Ionic, GraphQL
- - Familiaridade com princípios de UX
- - Familiaridade com APIs REST, GraphQL e WebSockets
- - Ter prática em testar software!
+2. Rodar sem Docker (O projeto já tem scripts na raiz usando concurrently. Suba frontend e backend juntos:):
 
-Os desafios de programação
-----------
+```bash
+npm install
+npm run dev
+```
 
-Se você **realmente ama** trabalhar com desenvolvimento de software e quer desafios pra sua carreira.. escolha um (ou todos) dos desafios abaixo, faça um fork desse repositório e [let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)
+Isso vai iniciar:
+- Backend: http://localhost:3000/graphql
+- Frontend: http://localhost:4200
 
-<!-- &lt;challenge&gt; Frontend Developer Iniciante &lt;/challenge&gt;
-----------
+3. Rodar com Docker (modo demo):
 
-:exclamation: | Faça esse teste apenas se você é realmente iniciante, beleza? :)
----: | :---
+```bash
+npm run docker:up:detached
+```
 
-<br/>
+- Backend → http://localhost:3000/graphql
+- Frontend → http://localhost:4200
 
-Esse desafio consiste em recortar o psd anexo nesse repositório ([Clique aqui para fazer o download](https://github.com/FieldControl/valinor/raw/master/front-end-challenge-1.zip)) para uma landing page.
+⚠️ Alterações no código não são refletidas automaticamente no Docker (modo apenas para testes rápidos).
+Para desenvolvimento, use os comandos npm run dev.
 
-Você pode usar criar os estilos na mão ou usar um framework já pronto como o Twitter Bootstrap.
 
-A idéia é que a landing seja responsiva e deve conter todas as seções do PSD:
+## 🧪 Rodando os testes
 
-- Header
-- Section para funcionalidades
-- Section de imagens
-- Section do time
-- Slider com depoimentos
-- Section para call to action
-- Footer
+Frontend:
+```bash
+cd frontend
+npm test
+```
 
-A dica aqui é que seu HTML e CSS seja bem escrito e com uma boa semântica :) -->
+Backend:
+```bash
+cd backend
+npm test
+```
 
-# 🚀 Desafio Técnico – Fullstack Developer
+## 📖 Funcionalidades
+- 🔎 Pesquisar repositórios por nome
+- 📊 Exibir informações: nome, descrição, URL, estrelas, watchers, issues
+- 📑 Paginação integrada com API do GitHub
+- 🎨 Layout simples e organizado (Angular Material)
+- ⚡ Camada intermediária (NestJS) com tratamento de erros e arquitetura modular
 
-----------
+## 🌟 Diferenciais
 
-O objetivo deste desafio é avaliar suas habilidades de **frontend e backend** em um cenário prático.  
-Você deverá construir uma aplicação **SPA (Single Page Application)** utilizando **Angular 18+** e também desenvolver um **backend em Node.js** (pode ser com **Express, Nest.js, GraphQL ou até Node.js puro**).
+- Testes unitários e E2E no backend / testes unitários no frontend
+- CI/CD com GitHub Actions
+- Deploy automático com Vercel e Render
+- Cache inteligente para otimizar chamadas à API
+- Docker para ambiente completo
 
-A aplicação deverá permitir que o usuário **pesquise repositórios no GitHub** (ou outra API pública de sua escolha) e exiba informações relevantes de cada repositório de forma paginada.
+##  🛠️ Tecnologias utilizadas
 
----
+Frontend:
+- Angular 18+
+- Apollo Angular (GraphQL)
+- Angular Material
+- RxJS
 
-## 🎯 Objetivos
 
-### Frontend (Angular 18+)
-- Permitir pesquisar repositórios por nome.
-- Listar informações relevantes: **nome, URL, descrição, contagem de watchers, estrelas, issues**, etc.
-- Implementar **paginação** via API.
-- Seguir boas práticas de **UX/UI**, com layout simples e organizado.
+Backend
+- Node.js 20+ / NestJS 11
+- GraphQL (Apollo Server)
+- Axios (chamadas HTTP)
+- Cache Manager
 
-### Backend (Node.js)
-- Servir como camada intermediária entre o frontend e a API externa (ex: GitHub).
-- Disponibilizar **endpoints REST ou GraphQL** para o frontend consumir.
-- Implementar **tratamento de erros** e boas práticas de arquitetura.
-- Utilizar **estrutura clara de pastas (MVC ou modular)**.
-- **Opcional:** implementar **caching** para melhorar a performance.
+Infra
+- Docker & Docker Compose
+- Render (deploy backend)
+- Vercel (deploy frontend)
 
----
-
-## 🧪 Diferenciais
-
-- **Testes unitários e integrados** no frontend e backend.  
-- Uso de **RxJS** no Angular para lidar com chamadas assíncronas.  
-- Uso de **Angular Material** ou outra biblioteca de UI.  
-- Configuração de **Docker** para subir o ambiente completo.  
-- Deploy em algum serviço (Heroku, Vercel, AWS, etc).  
-
----
-
-## 🔗 URLs úteis
-
-| Descrição | URL |
-|-----------|-----|
-| API para pesquisar repositórios no GitHub | https://api.github.com/search/repositories?q=bootstrap |
-| API para listar issues de um repositório | https://api.github.com/search/issues?q=repo:username/reponame |
-| Documentação da API GitHub | https://developer.github.com/v3/search |
-
-Se achar a API do GitHub muito "boring", pode escolher outra API pública divertida, como:
-- [Star Wars (SWAPI)](https://swapi.dev)
-- [Marvel](https://developer.marvel.com)
-- [The Cat API](https://thecatapi.com)
+## 🌍 Deploy
+- Frontend → Vercel
+- Backend → Render
 
 ---
 
-## ✅ Requisitos mínimos
-
-- Frontend em **Angular 18+** (obrigatório).
-- Backend em **Node.js** (pode ser Express, Nest.js, GraphQL ou puro).
-- Listar itens de uma API pública.
-- Implementar **paginação** via API.
-- Seguir **boas práticas de código, organização e clareza**.
-
----
-
-## 📦 Entrega
-
-- O código deve estar em um repositório público no GitHub/GitLab.  
-- O README deve conter:
-  - Instruções para rodar o frontend e backend.  
-  - Dependências necessárias.  
-  - Como rodar os testes.  
-
----
-
-👉 Esse desafio é uma oportunidade de mostrar suas **skills técnicas** e também sua **organização de projeto**.  
-
-Boa sorte e divirta-se! 🚀
-
-<!-- { "challenge": "Backend Developer 1" } -->
-<!-- ---------- -->
-
-<!-- Desenvolver uma API JSON RESTful expondo operações de um CRUD. -->
-
-<!-- Pense em algum recurso (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser.. -->
-
-<!-- Utilize todos os métodos (GET, POST, PUT, PATCH, DELETE) -->
-
-<!-- Você terá que expor os seguintes endpoints para o recurso escolhido: -->
-
-<!-- | Método | URL  | Comportamento esperado                               |  -->
-<!-- |--------| ---  |                                                  --- | -->
-<!-- | GET    | /resources     | Recupera a lista dos recursos, essa ação deve ser paginada e deve possibilitar busca pelas propriedades do recurso |  -->
-<!-- | GET    | /resources/:id | Recupera um recursos em especifico pelo id |  -->
-<!-- | POST   | /resources     | Insere um novo recurso                     |  -->
-<!-- | PUT    | /resources/:id | Altera um recurso existente                |  -->
-<!-- | PATCH  | /resources/:id | Altera parcialmente um recurso existente   |  -->
-<!-- | DELETE | /resources/:id | Exclui um recurso existente                | -->
-
-<!-- - **Qual Web Framework?** pode ser Express.js, Hapi, Restify, Koa, fastify, o que você preferir :P -->
-<!-- - **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :) -->
-
- <!-- **Atenção:** -->
- <!-- Você deve se preocupar com sanitização, validação e semântica.   -->
- 
-<!-- { "challenge": "Backend Developer" }
-----------
-
-Desenvolver uma API GraphQL em JavaScript expondo operações de um CRUD.
-
-Pense em algum tema (use sua criatividade), pode ser gatos, personagens dos senhores do anéis, personagens da marvel, pokemon, enfim, o que você quiser..
-
-Você terá que expor as seguintes queries e mutations para o tema escolhido:
-
-| Tipo      | O quê?  | Comportamento esperado                               | 
-|--------   | ---     |                                                  --- |
-| Query     | Recuperar lista dos items     | Recupera a lista dos items, essa ação deve ser paginada e deve possibilitar busca por propriedades | 
-| Query     | Recuperar um item | Recupera um item pelo id | 
-| Mutation  | Adicionar um item | Insere um novo item                     | 
-| Mutation  | Atualizar um item | Altera um item existente                | 
-| Mutation  | Excluir um item   | Remove um item existente                | 
-
-- **Qual Web Framework?** pode ser graphql-js, graphql-yoga, apollographql ou o que você preferir :P
-
-- **Qual Banco de dados?** Mesmo pensamento, pode ser MongoDb, DynamoDb, Postgres, MySql.. enfim, não importa :)
-
- **Atenção:**
- Você deve se preocupar com validação e semântica.  -->
-
-Dúvidas?
-----------
-Abra um issue ou mande um e-mail para **igor@notro.io** ou **luiz@fieldcontrol.com.br**, fechou? :)
-
-Avaliação
-----------
-
-Entre os critérios de avaliação estão:
-
-- Código limpo e organização
-- Testes de software (unitários e integrados)
-- Semântica
-- Documentação do projeto (README)
-- Segurança
-
-Entrega
-----------
-
-Você deve enviar a resolução do desafio via pull request nesse mesmo repositório :)
-
-Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento. Então, quando for enviar seu pull request, por favor responda:
-
-- Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
-- Porque você optou pela tecnologia X e não a Y
-- Quais princípios da engenharia de software que você usou?
-- Desafios e problemas que você enfrentou e como você resolveu
-- O que você entende que pode ser melhorado e como fazer isso
+Feito com 💙 por [Jackson](https://github.com/iJacKP).  
+Fique à vontade para testar, contribuir ou deixar seu feedback!

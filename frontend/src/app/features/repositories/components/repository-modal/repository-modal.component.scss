@@ -1,0 +1,42 @@
+:host {
+  display: block;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 12px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+mat-dialog-content {
+  font-size: 0.95rem;
+  color: #444;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  a {
+    color: #1976d2;
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+mat-dialog-actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    font-weight: 500;
+    text-transform: none;
+  }
+}

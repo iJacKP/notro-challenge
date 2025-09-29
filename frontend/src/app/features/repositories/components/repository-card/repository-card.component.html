@@ -1,0 +1,17 @@
+<mat-card class="repo-card" (click)="handleClick()">
+  <div class="card-content">
+    <h3 class="repo-name">{{ repo.name }}</h3>
+    <p class="repo-description">{{ repo.description }}</p>
+  </div>
+
+  <div class="card-footer">
+    <div class="stats">
+      <mat-icon style="color: #9c27b0;">star</mat-icon> {{ repo.stars }}
+      <mat-icon style="color: #607d8b;">visibility</mat-icon> {{ repo.watchers }}
+      <mat-icon style="color: #ff9800;">bug_report</mat-icon> {{ repo.issues }}
+    </div>
+    <a [href]="repo.url" target="_blank" (click)="$event.stopPropagation()">
+      <mat-icon>open_in_new</mat-icon>
+    </a>
+  </div>
+</mat-card>

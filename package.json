@@ -1,0 +1,22 @@
+{
+  "name": "notro-challenge",
+  "version": "1.0.0",
+  "scripts": {
+    "frontend": "npm start --prefix frontend",
+    "backend": "npm run start:dev --prefix backend",
+    "dev": "concurrently \"npm run frontend\" \"npm run backend\"",
+    "test:frontend": "npm test --prefix frontend",
+    "test:backend": "npm test --prefix backend",
+    "build:frontend": "npm run build --prefix frontend",
+    "build:backend": "npm run build --prefix backend",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up",
+    "docker:up:detached": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:prune": "docker system prune -af",
+    "docker:logs": "docker-compose logs -f"
+  },
+  "devDependencies": {
+        "concurrently": "^9.0.0"
+  }
+}

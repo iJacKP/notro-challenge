@@ -1,0 +1,16 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type RepositoryType {
+  name: String!
+  url: String!
+  description: String
+  stars: Int!
+  watchers: Int!
+  issues: Int!
+}
+
+type Query {
+  searchRepositories(query: String!, page: Int! = 1): [RepositoryType!]!
+}
