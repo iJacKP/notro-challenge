@@ -1,7 +1,7 @@
 import { Resolver, Query, Args, Int } from '@nestjs/graphql';
 import { RepositoryType } from './repository.schema';
 import { SearchRepositoriesUseCase } from '../../core/use-cases/search-repositories.usecase';
-import { BadRequestException } from '@nestjs/common';
+import { BadRequestException, HttpException } from '@nestjs/common';
 
 @Resolver(() => RepositoryType)
 export class RepositoryResolver {
@@ -21,9 +21,13 @@ export class RepositoryResolver {
     try {
       return await this.searchUseCase.execute(query, page);
     } catch (error: unknown) {
-      const message =
-        error instanceof Error ? error.message : 'Erro desconhecido';
-      throw new BadRequestException(message);
+    if (error instanceof HttpException) {
+      throw new BadRequestException(error.message);
     }
+
+    const message =
+      error instanceof Error ? error.message : 'Erro ao buscar repositórios.';
+    throw new BadRequestException(message);
+  }
   }
 }
