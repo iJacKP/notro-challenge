@@ -2,9 +2,9 @@ name: CI/CD Notro Challenge 🚀
 
 on:
   push:
-    branches: [development]
+    branches: [main]
   pull_request:
-    branches: [development]
+    branches: [main]
 
 jobs:
   # Job para Backend
