@@ -5,6 +5,9 @@ Aplicação fullstack para pesquisar repositórios do GitHub por nome, visualiza
 
 Frontend em Angular 18+ e backend em NestJS + GraphQL, seguindo boas práticas de arquitetura, testes e organização.
 
+- Live Demo → [![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://notro-challenge.vercel.app/)
+
+
 ## ✅ Requisitos atendidos
 
 - 	Frontend em Angular 18+
@@ -125,8 +128,6 @@ Infra
 ## 🌍 Deploy
 - Frontend → Vercel
 - Backend → Render
-
-- Live Demo → [![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://notro-challenge.vercel.app/)
 
 ---
 
